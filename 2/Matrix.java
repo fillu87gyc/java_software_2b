@@ -1,13 +1,16 @@
 import java.io.*;
 
+import static java.lang.System.exit;
+
 public class Matrix {
     //3<=M,N,K<=10
     public static void main(String args[]) {
         Matrix mat_a = new Matrix("A");
+        Matrix mat_b = new Matrix("B");
         try {
-            File mat_a_data = null, mat_b_data = null;
             if (args.length == 2) {
                 mat_a.read(args[0]);
+                mat_b.read(args[1]);
             } else {
                 error_occered.stop_program("引数のファイル数が間違っています");
             }
@@ -15,13 +18,10 @@ public class Matrix {
             e.printStackTrace();
         }
 
-        Matrix mat_b = new Matrix("B");
-        mat_b.read(args[1]);
         if (mat_a.is_equal_M_N_K(mat_b))
             error_occered.stop_program("行列がどちらも" + mat_a.row + "*" + mat_a.col + "の正則行列です");
 
-        Matrix mat_c = mat_a.multiply(mat_b);
-        mat_c.Set_name("C");
+        Matrix mat_c = mat_a.multiply(mat_b, "C");
 
         System.out.println(mat_a.Get_name() + ": " + mat_a.col + "*" + mat_a.row);
         mat_a.print();
@@ -45,14 +45,11 @@ public class Matrix {
         this.mat_name = matrix_name;
     }
 
-    public void Set_name(String matrix_name) {
-        this.mat_name = matrix_name;
-    }
-
     public String Get_name() {
         return mat_name;
     }
 
+    //正則行列かどうか大きさを確認する A=M*K B=K*N
     public boolean is_equal_M_N_K(Matrix mat) {
         int M, N, K;
         M = col;
@@ -62,23 +59,28 @@ public class Matrix {
         return (M == N) && (M == K) && (N == K);
     }
 
-    public Matrix multiply(Matrix B) {
-        Matrix result = new Matrix("result");
+    public Matrix multiply(Matrix B, String name) {
+        Matrix result = new Matrix(name);
         if (this.row != B.col) {
             error_occered.stop_program("計算不能です(大きさが違います)");
         }
-        result.col = this.col;
+        result.col = this.col; //Aの行
         result.row = B.row;
         result.m = new double[result.col][result.row];
-        int M = row;
+        int K = row; //行列積のそれぞれの要素は積和形でいくつの項からなるか
         for (int i = 0; i < result.col; i++) {
             for (int j = 0; j < result.row; j++) {
-                for (int k = 0; k < M; k++) {
+                for (int k = 0; k < K; k++) {
                     result.m[i][j] += m[i][k] * B.m[k][j];
                 }
             }
         }
         return result;
+    }
+
+    public Matrix multiply(Matrix B) {
+        //計算結果の行列に名前がいらない場合はデフォルトの名前をつける
+        return multiply(B, "no-named");
     }
 
     public void print() {
@@ -130,3 +132,16 @@ public class Matrix {
     }
 }
 
+class error_occered {
+    static void stop_program(String msg) {
+        //プログラム終了
+        System.out.println(msg);
+        exit(1);
+    }
+
+    static void stop_program(Exception e) {
+        //プログラム終了
+        System.out.println(e.getStackTrace());
+        exit(1);
+    }
+}
