@@ -3,21 +3,14 @@ import java.io.*;
 import static java.lang.System.exit;
 
 public class Matrix {
-    //3<=M,N,K<=10
     public static void main(String args[]) {
+        if (args.length != 2) {
+          error_occered.stop_program("引数のファイル数が間違っています");
+        }
         Matrix mat_a = new Matrix("A");
         Matrix mat_b = new Matrix("B");
-        try {
-            if (args.length == 2) {
-                mat_a.read(args[0]);
-                mat_b.read(args[1]);
-            } else {
-                error_occered.stop_program("引数のファイル数が間違っています");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        mat_a.read(args[0]);
+        mat_b.read(args[1]);
         if (mat_a.is_equal_M_N_K(mat_b))
             error_occered.stop_program("行列がどちらも" + mat_a.row + "*" + mat_a.col + "の正則行列です");
 
@@ -49,12 +42,12 @@ public class Matrix {
         return mat_name;
     }
 
-    //正則行列かどうか大きさを確認する A=M*K B=K*N
+    //正則行列かどうか大きさを確認する 大きさはA=M*K B=K*N
     public boolean is_equal_M_N_K(Matrix mat) {
         int M, N, K;
         M = col;
         N = mat.row;
-        K = row; //or B.col
+        K = row; //similar B.col
 
         return (M == N) && (M == K) && (N == K);
     }
