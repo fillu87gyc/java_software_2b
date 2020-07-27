@@ -39,7 +39,7 @@ public class Rectangle extends Shape2D {
     }//四角形の面積を返す関数
 
     public void psPrint(PrintStream cout) {
-        cout.println("% %四角形\n" +
+        cout.println("%%四角形\n" +
                 super.getColor().GetFormattedColor() + "setrgbcolor\n" +
                 "newpath\n" +
                 String.format("%.2f", v1.getX()).toString() + " " + String.format("%6.2f", v1.getY()).toString() + " moveto\n" +

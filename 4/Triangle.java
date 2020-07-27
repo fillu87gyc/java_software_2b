@@ -55,7 +55,7 @@ public class Triangle extends Shape2D {
     }//三角形の面積を返す関数
 
     public void psPrint(PrintStream cout) {
-        cout.println("% %三角形\n" +
+        cout.println("%%三角形\n" +
                 super.getColor().GetFormattedColor() + "setrgbcolor\n" +
                 "newpath\n" +
                 String.format("%.2f", v1.getX()) + " " + String.format("%6.2f", v1.getY()) + " moveto\n" +

@@ -30,7 +30,7 @@ public class Circle extends Shape2D {
     }//円の面積を返す関数
 
     public void psPrint(PrintStream cout) {
-        cout.println("% %円\n" +
+        cout.println("%%円\n" +
                 super.getColor().GetFormattedColor() + "setrgbcolor\n" +
                 "newpath\n" +
                 String.format("%.2f", v.getX()) + " " + String.format("%6.2f", v.getY()) + " " + String.format("%6.2f", r) + " 0 360 arc\n" +
