@@ -2,3 +2,5 @@
 *.zip
 result*
 Kadai*.txt
+*pdf
+*.ps
