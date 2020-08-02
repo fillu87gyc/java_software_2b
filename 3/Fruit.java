@@ -1,3 +1,8 @@
+/*
+203302 石山智也 すべての果物の親クラス
+2020/07/28
+*/
+
 public class Fruit {
 
     private double vitaminC; /* ビタミンＣ含有量：100gあたり */

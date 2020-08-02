@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.*;
 import static java.lang.System.exit;
-
+/*
+203302 石山智也 エントリーポイント
+2020/07/28
+*/
 class Kadai3 {
   static void print_header(String[] args) {
     String arg_concatenate = "";

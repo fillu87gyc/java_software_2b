@@ -1,7 +1,9 @@
 import static java.lang.StrictMath.sqrt;
-
+/*
+203302 石山智也　  ２次元座標を表現するクラス
+2020/07/28
+*/
 public class Coord2 {
-    // ２次元座標を表現するクラス
     // メンバー変数：
     private double x, y;
 

@@ -3,9 +3,12 @@ import java.nio.charset.CoderResult;
 
 import static java.lang.StrictMath.PI;
 import static java.lang.StrictMath.abs;
+/*
+203302 石山智也　円を管理するクラス
+2020/07/28
+*/
 
 public class Circle extends Shape2D {
-    // （Shape2D クラスの派生クラス）
     //  メンバー変数：
     private Coord2 v;
     private double r;

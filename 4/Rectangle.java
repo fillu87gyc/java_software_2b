@@ -2,6 +2,10 @@ import java.io.PrintStream;
 
 import static java.lang.StrictMath.abs;
 import static java.lang.StrictMath.sqrt;
+/*
+203302 石山智也　  四角形を管理するクラス
+2020/07/28
+*/
 
 public class Rectangle extends Shape2D {
     // （Shape2D クラスの派生クラス）

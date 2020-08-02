@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static java.lang.System.exit;
+/*
+203302 石山智也　  エントリーポイント
+2020/07/28
+*/
 
 public class Kadai4 {
     static void print_header(String[] args,PrintStream cout) {

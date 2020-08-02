@@ -1,3 +1,7 @@
+/*
+203302 石山智也 いちごを取り扱うクラス
+2020/07/28
+*/
 public class Stawberry extends Fruit {
     final static double vitaminC = 62.0; // mg/100gあたり
     final static int price = 59;       // 1個あたり

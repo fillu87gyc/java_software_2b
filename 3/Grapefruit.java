@@ -1,3 +1,7 @@
+/*
+203302 石山智也 グレープフルーツを管理するクラス
+2020/07/28
+*/
 public class Grapefruit extends Fruit {
     final static double vitaminC = 36.0; // mg/100gあたり
     final static int price = 127;       // 1個あたり

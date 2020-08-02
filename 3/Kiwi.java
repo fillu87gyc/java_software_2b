@@ -1,3 +1,8 @@
+/*
+203302 石山智也 キウイを取り扱うクラス
+2020/07/28
+*/
+
 public class Kiwi extends Fruit {
     final static double vitaminC = 69.0; // mg/100gあたり
     final static int price = 124;       // 1個あたり

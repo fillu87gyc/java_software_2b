@@ -1,7 +1,11 @@
 import java.io.PrintStream;
+/*
+203302 石山智也　 図形の親クラス
+2020/07/28
+*/
 
 public abstract class Shape2D {
-    private Color color; //Color クラスは後述
+    private Color color;
 
     public void setColor(Color c){
         this.color = c;
